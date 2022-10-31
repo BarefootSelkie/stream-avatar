@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .frame
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function run()
+        {
+            var element = document.getElementById("avatar");
+
+            var images = ["blink.png", "rest1.png", "rest2.png"];
+
+            var index = Math.floor(Math.random() * images.length);
+            element.src = "images/" + images[index];
+
+            var duration = (Math.random() * 5) + 3;
+            if (index == 0)
+            {
+                duration = 0.4; // always blink fast
+            }
+
+            console.log("Showing " + images[index] + ' for ' + duration + ' seconds');
+            setTimeout(run, duration * 1000);
+        }
+    </script>
+</head>
+
+<body onload="run()">
+    <div id="frame"><img src="blink.png" id="avatar" /></div>
+</body>
+
+</html>
